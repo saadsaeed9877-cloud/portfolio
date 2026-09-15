@@ -1,0 +1,269 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+    --radius: 0.125rem;
+  }
+}
+
+/* ── Newspaper design system ─────────────────────────────────────────── */
+
+:root {
+  --paper: #f4eee1;
+  --paper-deep: #ece4d2;
+  --ink: #1d1a16;
+  --ink-soft: #4a443b;
+  --ink-faint: #8a8172;
+  --rule: #2a261f;
+  --accent-red: #8f1d1d;
+}
+
+html {
+  background: var(--paper-deep);
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+  background-color: var(--paper);
+  background-image:
+    radial-gradient(ellipse at 20% -10%, rgba(255, 255, 255, 0.55), transparent 55%),
+    radial-gradient(ellipse at 90% 110%, rgba(120, 100, 60, 0.10), transparent 50%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.f-display { font-family: 'Playfair Display', Georgia, serif; }
+.f-body { font-family: 'Source Serif 4', Georgia, serif; }
+.f-mono { font-family: 'IBM Plex Mono', ui-monospace, monospace; }
+
+.ink { color: var(--ink); }
+.ink-soft { color: var(--ink-soft); }
+.ink-faint { color: var(--ink-faint); }
+.accent-red { color: var(--accent-red); }
+.bg-paper { background-color: var(--paper); }
+.bg-paper-deep { background-color: var(--paper-deep); }
+
+/* Classic double rule (thick over thin) used under mastheads and banners */
+.rule-double {
+  border-top: 3px solid var(--rule);
+  position: relative;
+}
+.rule-double::after {
+  content: '';
+  display: block;
+  border-top: 1px solid var(--rule);
+  margin-top: 2px;
+}
+.rule-double-bottom {
+  border-bottom: 1px solid var(--rule);
+  position: relative;
+  padding-bottom: 3px;
+}
+.rule-double-bottom::after {
+  content: '';
+  display: block;
+  border-bottom: 3px solid var(--rule);
+  margin-top: 2px;
+}
+.rule-thin { border-top: 1px solid var(--rule); }
+.rule-thick { border-top: 4px solid var(--rule); }
+
+/* Drop cap for article leads */
+.dropcap::first-letter {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 900;
+  font-size: 3.6em;
+  line-height: 0.82;
+  float: left;
+  padding: 0.06em 0.12em 0 0;
+  color: var(--ink);
+}
+
+/* Justified newspaper columns with hyphens */
+.news-copy {
+  text-align: justify;
+  hyphens: auto;
+  line-height: 1.62;
+}
+
+/* Nav link underline treatment */
+.nav-link {
+  position: relative;
+  letter-spacing: 0.14em;
+  transition: color 0.15s ease;
+}
+.nav-link:hover { color: var(--accent-red); }
+.nav-link.active { color: var(--accent-red); }
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  border-bottom: 2px solid var(--accent-red);
+}
+
+/* Ink-link for inline references */
+.ink-link {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: color 0.15s ease;
+}
+.ink-link:hover { color: var(--accent-red); }
+
+/* Framed box (vital statistics, classifieds) */
+.frame-box {
+  border: 1px solid var(--rule);
+  outline: 3px double var(--rule);
+  outline-offset: 4px;
+  background: rgba(255, 252, 244, 0.5);
+}
+
+/* Halftone portrait frame */
+.photo-frame {
+  border: 1px solid var(--rule);
+  padding: 6px;
+  background: #faf6ec;
+  box-shadow: 4px 4px 0 rgba(29, 26, 22, 0.12);
+}
+
+.photo-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+/* Headline hover for teaser cards */
+.teaser { transition: transform 0.18s ease, box-shadow 0.18s ease; }
+.teaser:hover { transform: translateY(-2px); }
+.teaser:hover .teaser-head { color: var(--accent-red); }
+.teaser-head { transition: color 0.15s ease; }
+
+/* Stamped effect for the date/price line */
+.stamp {
+  border: 1.5px solid var(--ink-soft);
+  border-radius: 2px;
+  padding: 2px 8px;
+  letter-spacing: 0.18em;
+}
+
+/* Classified ad hover */
+.classified { transition: background 0.15s ease; }
+.classified:hover { background: rgba(143, 29, 29, 0.05); }
+
+/* Make text visible on classified hover */
+.classified:hover .ink { color: var(--accent-red); }
+.classified:hover .ink-soft { color: var(--accent-red); }
+
+/* Enhanced button styling */
+button, [role="button"] {
+  transition: all 0.2s ease;
+}
+
+button:hover:not(:disabled),
+[role="button"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(29, 26, 22, 0.15);
+}
+
+button:focus-visible,
+[role="button"]:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--paper), 0 0 0 4px var(--accent-red);
+}
+
+button:active:not(:disabled),
+[role="button"]:active {
+  transform: translateY(0);
+}
+
+/* Enhanced input field styling */
+input, textarea, select {
+  transition: all 0.15s ease;
+}
+
+input:focus, 
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--accent-red) !important;
+  box-shadow: inset 0 0 0 1px var(--accent-red), 0 0 0 3px rgba(143, 29, 29, 0.1);
+  background-color: #fefbf5;
+}
+
+input:hover:not(:focus),
+textarea:hover:not(:focus),
+select:hover:not(:focus) {
+  border-color: var(--ink-soft);
+  background-color: #fbf8f0;
+}
+
+/* Page flip animation with 3D effect */
+@keyframes pageFlip {
+  0% {
+    opacity: 0;
+    transform: perspective(1000px) rotateY(-90deg);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: perspective(1000px) rotateY(0deg);
+  }
+}
+
+/* Alternative subtle flip for better performance */
+@keyframes pageFadeFlip {
+  from {
+    opacity: 0;
+    transform: rotateY(-12deg) translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: rotateY(0deg) translateX(0);
+  }
+}
+
+/* Original fade-in on page change */
+@keyframes paperIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.page-in { 
+  animation: pageFadeFlip 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  transform-origin: center;
+}
+
+::selection { background: var(--ink); color: var(--paper); }

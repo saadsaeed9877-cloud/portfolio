@@ -1,0 +1,30 @@
+https://github.com/saadsaeed9877-cloud/BSP-V1
+
+
+Description: This research presents a comprehensive study on automated bug severity classification using state-of-the-art transformer-based deep learning models. We propose and evaluate multiple neural network architectures including XLNet, BERT, CNN, LSTM, and RNN for predicting bug report severity across six categories: blocker, critical, major, normal, minor, and trivial. Our approach leverages a large-scale dataset of 185,000 bug reports from multiple open-source projects (Eclipse JDT, Eclipse CDT, Eclipse Platform, Firefox, and Thunderbird) with controlled oversampling to address class imbalance. The study demonstrates the effectiveness of transformer-based models in software engineering tasks and provides reproducible experimental protocols for future research.
+
+
+https://github.com/saadsaeed9877-cloud/Sync-Station
+
+Discord bot for tracking your work time
+
+https://github.com/saadsaeed9877-cloud/eat-n-split
+
+A React bill splitting application for practicing React state management and component design.
+
+https://github.com/saadsaeed9877-cloud/worldwise
+
+A comprehensive travel tracking application demonstrating React Router, Context API, and advanced React patterns.
+
+https://github.com/saadsaeed9877-cloud/the-wild-oasis
+
+A luxury hotel management application demonstrating professional React development with React Query, authentication, and advanced patterns.
+
+https://github.com/saadsaeed9877-cloud/the-wild-oasis-website
+
+A Next.js website for The Wild Oasis hotel demonstrating the App Router, Server Components, and Server Actions.
+
+https://github.com/saadsaeed9877-cloud/manual-ssr
+
+A demonstration of manual server-side rendering implementation in React.
+

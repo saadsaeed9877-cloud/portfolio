@@ -1,0 +1,74 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+                    QUICK DEPLOYMENT GUIDE - 5 MINUTES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+STEP 1: Verify Build Works (1 min)
+────────────────────────────────
+pnpm run build
+pnpm run preview
+✓ Site should load at http://localhost:4173
+
+STEP 2: Push to GitHub (2 min)
+────────────────────────────────
+git init
+git add .
+git commit -m "Production-ready portfolio"
+git remote add origin https://github.com/YOUR_USERNAME/portfolio.git
+git branch -M main
+git push -u origin main
+
+STEP 3: Deploy on Netlify (1 min)
+────────────────────────────────
+1. Go to app.netlify.com
+2. Click "Add new site" → "Import an existing project"
+3. Choose GitHub → Authorize → Select your repo
+4. Verify settings:
+   - Build command: pnpm run build
+   - Publish directory: dist
+   - Node version: 20
+5. Click "Deploy site" ✓
+
+STEP 4: Add Environment Variables (1 min)
+────────────────────────────────
+1. Site settings → Build & deploy → Environment
+2. Add these variables:
+   VITE_EMAILJS_PUBLIC_KEY = your_key_from_emailjs
+   VITE_EMAILJS_SERVICE_ID = service_xxxxx
+   VITE_EMAILJS_TEMPLATE_ID = template_xxxxx
+3. Trigger new deploy
+
+STEP 5: Test Live Site (Optional)
+────────────────────────────────
+1. Click your Netlify URL (e.g., https://your-site.netlify.app)
+2. Test contact form → should send email
+3. Verify toast notifications appear
+4. Check all pages load correctly
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+                              TROUBLESHOOTING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Build fails?
+→ pnpm run build (locally first)
+→ Check Netlify build logs for errors
+→ Verify Node version is 20
+
+Email not sending?
+→ Verify env vars in Netlify (exact names matter)
+→ Redeploy after adding env vars
+→ Check browser console for errors
+
+404 on page refresh?
+→ netlify.toml should have redirects
+→ Verify netlify.toml exists in root directory
+
+Need more help?
+→ See NETLIFY_DEPLOYMENT.md (comprehensive guide)
+→ See PRODUCTION_CHECKLIST.md (full verification)
+→ See DEPLOYMENT_SUMMARY.md (overview)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎉 Your portfolio will be live in ~5 minutes!
+
+Next: Go to app.netlify.com and follow STEP 3 above.
