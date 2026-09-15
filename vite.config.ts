@@ -2,7 +2,6 @@ import path from "path"
 import react from "@vitejs/plugin-react"
 import { defineConfig } from "vite"
 import { inspectAttr } from 'kimi-plugin-inspect-react'
-import type { TerserOptions } from 'terser'
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -27,7 +26,7 @@ export default defineConfig({
       format: {
         comments: false,
       },
-    } as TerserOptions,
+    },
     rollupOptions: {
       output: {
         manualChunks: {
